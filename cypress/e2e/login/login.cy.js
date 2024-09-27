@@ -9,7 +9,7 @@ describe("Login", () => {
 
     it("Realizar login com sucesso", () => {
       //Clica no botão anonimo para navegar até a seção de login
-      cy.get("button > h2").click();
+      cy.get("button > h1").click();
 
       //Modal de login é exibido
       cy.get(".login-modal").should("be.visible");
