@@ -15,10 +15,10 @@ describe("Login", () => {
       cy.get(".login-modal").should("be.visible");
 
       //Preencher o campo de email
-      cy.get('[placeholder="Email"]').type("teste@email.com");
+      cy.get('[placeholder="Email"]').type("vff2804@gmail.com");
 
       //Preencher o campo de senha
-      cy.get('[placeholder="Senha"]').type("123456");
+      cy.get('[placeholder="Senha"]').type("mvp.uvm@ege9kfc!AKN");
 
       //Clicar no botão de login
       cy.get(".login-button").click();

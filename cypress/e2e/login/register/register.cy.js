@@ -10,14 +10,14 @@ describe("Cadastro de pacientes", () => {
       cy.get("button > h1").click();
 
       //Processo de login
-      cy.get('[placeholder="Email"]').type("email@teste.com");
-      cy.get('[placeholder="Senha"]').type("12345678");
+      cy.get('[placeholder="Email"]').type("vff2804@gmail.com");
+      cy.get('[placeholder="Senha"]').type("mvp.uvm@ege9kfc!AKN");
       cy.get(".login-button").click();
       //Após login verifica se a tela de cadastro de paciente está visível
       cy.get(".lobby-container-2").should("be.visible");
     });
 
-    it("Preencher campos do cadastro e cadastrar", () => {
+    it("Preencher campos do cadastro e cadastrar paciente", () => {
       //Nome
       cy.get("#name").type("Paciente Teste");
       //Telefone
@@ -46,17 +46,34 @@ describe("Cadastro de pacientes", () => {
       cy.get(".home-container-1").should("be.visible");
     });
 
-    it("Lista de pacientes cadastrados e detalhes", () => {
+    it("Mostra lista de pacientes cadastrados, os detalhes do paciente e fecha o modal", () => {
       //Lista de pacientes deve estar visível
       cy.get(".lobby-patient-registration-container-3").should("be.visible");
       //Clicar no botão de detalhes do paciente
-      cy.get("tbody > :nth-child(2) > :nth-child(5)").click();
+      cy.get("tbody > :nth-child(1) > :nth-child(4)").click();
       //Detalhes do paciente deve estar visível
-      cy.get(".lobby-patient-detail-modal").should("be.visible");
+      cy.get(".lobby-patient-detail-container-1").should("be.visible");
       //Fechar modal de detalhes
-      cy.get(".lobby-patient-detail-container-1 > button").click();
+      cy.get('[type="button"]').click();
 
       //A funcionalidade de adicionar um paciente novo na lista após cadastrar ainda não foi implementada
+    });
+
+    it("Mostra lista de pacientes cadastrados, os detalhes do paciente e salva as alterações", () => {
+      //Lista de pacientes deve estar visível
+      cy.get(".lobby-patient-registration-container-3").should("be.visible");
+      //Clicar no botão de detalhes do paciente
+      cy.get("tbody > :nth-child(1) > :nth-child(4)").click();
+      //Detalhes do paciente deve estar visível
+      cy.get(".lobby-patient-detail-container-1").should("be.visible");
+      //Salva alterações realizadas no paciente
+      cy.get('.lobby-patient-detail-container-1 > [type="submit"]').click();
+      //Mostra mensagem de sucesso ao salvar as alterações
+      cy.get(".message-container > section").contains(
+        "Paciente atualizado com sucesso!"
+      );
+      //Fechar modal com mensagem de sucesso
+      cy.get(".message-container > section > button").click();
     });
   });
 });

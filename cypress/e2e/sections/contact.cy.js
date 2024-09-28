@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("Seção de Contato", () => {
   context("Formulário de contato", () => {
     beforeEach(() => {
@@ -19,7 +21,7 @@ describe("Seção de Contato", () => {
       //Verifica se o reCapcha está visível
       cy.get(".contacts-recaptcha").should("be.visible");
 
-      //Habilitar o botão de envio do formulário manualmente
+      //Habilitar o botão de envio do formulário manualmente e enviar
       cy.get("button[type='submit']").should("be.disabled");
       cy.get('button[type="submit"]').invoke("removeAttr", "disabled").click();
 

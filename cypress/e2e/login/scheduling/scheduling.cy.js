@@ -10,8 +10,8 @@ describe("Seção de Agendamentos", () => {
       cy.get("button > h1").click();
 
       //Processo de login
-      cy.get('[placeholder="Email"]').type("email@teste.com");
-      cy.get('[placeholder="Senha"]').type("12345678");
+      cy.get('[placeholder="Email"]').type("vff2804@gmail.com");
+      cy.get('[placeholder="Senha"]').type("mvp.uvm@ege9kfc!AKN");
       cy.get(".login-button").click();
 
       //Clica no botão de agendamento
@@ -28,20 +28,20 @@ describe("Seção de Agendamentos", () => {
       ).click();
 
       //Verifica se o modal de agendamento está sendo exibido
-      cy.get(".lobby-patient-detail-modal").should("be.visible");
+      cy.get(".lobby-patient-schedule-container-1").should("be.visible");
 
       //Preenche a data de agendamento e a hora
-      cy.get(".lobby-patient-detail-container-1 > input").type(
+      cy.get(".lobby-patient-schedule-container-1 > input").type(
         "2024-01-01T12:30"
       );
 
       //Seleciona o botão de agendar
-      cy.get(".lobby-patient-detail-container-1")
+      cy.get(".lobby-patient-schedule-container-1 > :nth-child(5)")
         .contains("button", "Agendar")
         .click(); //Ainda não foi implementado a requisão para agendar o paciente na lista de agendamentos
 
       //Fechar modal de agendamento
-      cy.get(".lobby-patient-detail-container-1")
+      cy.get(".lobby-patient-schedule-container-1 > :nth-child(6)")
         .contains("button", "Fechar")
         .click();
     });

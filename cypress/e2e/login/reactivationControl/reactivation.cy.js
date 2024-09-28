@@ -10,8 +10,8 @@ describe("Controle de reativação", () => {
       cy.get("button > h1").click();
 
       //Processo de login
-      cy.get('[placeholder="Email"]').type("email@teste.com");
-      cy.get('[placeholder="Senha"]').type("12345678");
+      cy.get('[placeholder="Email"]').type("vff2804@gmail.com");
+      cy.get('[placeholder="Senha"]').type("mvp.uvm@ege9kfc!AKN");
       cy.get(".login-button").click();
 
       //Clica na seção de controle de reativação
